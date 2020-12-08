@@ -6,12 +6,44 @@
 
 > These questions have multiple correct answers. They are meant to test your knowledge.
 
+################################################################################################
+
 1. What is "N + 1" problem in REST APIs and how would you solve it?
+
+The N+1 problem is a situation where client applications are required to call the server N+1 times to fetch one collection resource + N client resources, mostly because of collection resources not had enough information about child resources to build its user interface altogether.
+
+#################################################################################################
+
 2. When do you stop writing unit tests?
+
+If you are using TDD, then you stop unit testing when all the tests in the test list have succeeded.
+Otherwise, you stop unit testing when the cost of finding more bugs through unit testing exceeds the cost of finding them through your QA process. and when you've reached an acceptable level of code coverage through the combination of all tests
+
+#################################################################################################
 3. Why would one use monorepos?
+
+A monorepo (mono repository) is a single repository that stores all of our code and assets for every project. 
+Using a monorepo is important for many reasons. 
+- It creates a single source of truth. It gives you visibility into your code and assets for every project. This helps you manage dependencies.
+- It makes it easier to share code and resue the assets. 
+- It makes it easier to refactor code.
+- Using a single repository can help you accelerate development. 
+
+
+#################################################################################################
 4. What is Liskov substitution principle?
+
+Liskov substitution principle - The object of the base class should be replaced by object of child classe without any issues. This principle expects that the subclasses should behave in the similar way as that of the base class.
+
+#################################################################################################
 5. How do you avoid race conditions?
+To prevent race conditions from occurring you must make sure that the critical section is executed as an atomic instruction. That means that once a single thread is executing it, no other threads can execute it until the first thread has left the critical section.
+
+#################################################################################################
 6. What is the first thing you do when you encounter a bug?
+When you encounter a bug - first thing you should reproduce it. Get all required information (application version, reproduction steps, specific data that is causing the issue, any particular environment which results into issue etc) to help reproduce.
+
+#################################################################################################
 
 ## "Why would anyone do drugs when they can just mow a lawn?"
 
@@ -33,6 +65,45 @@ To acquire new clients, Billy wants to have a coupon system in place as well.
 
 > This section has no correct answers. Albeit optional, your answers will help us understand your thinking process.
 
+--------------------------------------------------------------------------------------------------------------------
+
+
 1. What other features would you like to add?
+
+We should add features gradually to the applicatios as it matures through multiple sprints:
+
+ - User registration.
+ - User authentication.
+ - Handling load of multiple requests etc. 
+ - The promotional events should be delivered to user on email. 
+ - There should be some provision for seasonal discounts that can be passed to registered users who have used the services before. 
+ - The yearky contract renewal reminders should ne handled with instant payment options. 
+ - User should be able to generate yearly / quarterly reports for service usage. 
+ - Reports should be generated dynamically and should ne serailized to suitable format. 
+ - Apponintments should be booked after login and users should be able to submit a complaint on the service received. 
+ - A general feedback collection mechanism should be added for the users who ohave recently availed the services. 
+ - There should be automated email notifications and SMS delivery mechanism on submission of new appointment / complaint redressal steps.
+
+--------------------------------------------------------------------------------------------------------------------
+
 2. How would you handle user authentication?
+
+User authentication is multi step process. It involves steps like - User registration, User login, Multi-factor authentication, Authorization (groups, permissions, etc.).
+Multi-Factor authentication is when a user is authenticated using two or more factors as authentication methods. We can also use OAuth authorization mechanism to allow application user access to a provider. On successful response, we will receive a token with which we can access certain APIs on behalf of a user.
+
+---------------------------------------------------------------------------------------------------------------------
+
 3. How would you deploy the solution in an enterprise environment?
+
+To deploy application - we can use containers. There are multiple flavour sof Enterprised Containers Servers available based on the requirement. Before we decide to move to an enterprise environment, we need to consider below points:
+
+ - We need to be able to deploy project to multiple environments, like test environments, staging platforms, and production servers. The solution needs to be deployed with different configuration settings for each environment.
+ - We need to deploy multiple dependent projects simultaneously as part of a single-step or automated build and deployment process.
+ - We need to be able to drive deployment from an automated process. For example, application should use continuous integration (CI) process to deploy (Continuous Deployment - CD, to a test environment when new code is checked in. There should be gated checkins through min criteria based on code review and unit tests coverage score for new code.
+ - There should be automated emails generated on build deployments to various environments. The build failures should also be notified to respwctive stake holders.
+ - The deployment to the higher environments should also be controlled through completed Quality Assurance Cycle against the agrred User stories for the given Sprint.
+ - We need to be able to control the deployment process and set deployment variables from outside IDE (Visual Studio), as developers are unlikely to have the correct configuration settings or the necessary credentials for every target environment.
+
+ Based on the load the Application instances can be varied - scaled up and down.
+ 
+ -----------------------------------------------------------------------------------------------------------------
